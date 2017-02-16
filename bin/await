@@ -15,6 +15,7 @@ Forms:
 	await [ -r RETRIES -i INTERVAL ] redis://host:port -- [ -t CONNECTION_TIMEOUT ]
 	await [ -r RETRIES -i INTERVAL ] memcached://host:port -- [ -t CONNECTION_TIMEOUT ]
 	await [ -r RETRIES -i INTERVAL ] mysql://user:password@host:port -- [ -t CONNECTION_TIMEOUT ]
+	await [ -r RETRIES -i INTERVAL ] postgresql://user:password@host:port?db -- [ -t CONNECTION_TIMEOUT ]
 	await [ -r RETRIES -i INTERVAL ] dynamodb://host:port -- [ -t CONNECTION_TIMEOUT ]
 	await [ -r RETRIES -i INTERVAL ] cmd -- COMMAND [ OPTIONS ]
 EOF
@@ -95,6 +96,9 @@ main() {
 			;;
 		mysql://*)
 			await "${retries}" "${interval}" -- mysql_check "$@" "${uri}"
+			;;
+		postgresql://*)
+			await "${retries}" "${interval}" -- postgresql_check "$@" "${uri}"
 			;;
 		memcached://*)
 			await "${retries}" "${interval}" -- memcached_check "$@" "${uri}"

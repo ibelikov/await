@@ -11,6 +11,7 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/reposit
 		pymemcache \
 		pymongo \
 		PyMySQL \
+		pg8000 \
 		redis \
 		awscli
 

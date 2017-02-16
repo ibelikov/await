@@ -10,6 +10,7 @@
 * mongodb
 * dynamodb
 * mysql
+* postgresql
 * memcached
 
 ## Usage
@@ -17,5 +18,3 @@
 ## FAQ's
 
 ## Comments
-
-

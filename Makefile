@@ -15,7 +15,7 @@ ENVIRONMENT := tmp/environment
 $(ENVIRONMENT): docker-compose.yml Dockerfile
 $(ENVIRONMENT): $(BIN_FILES) $(TEST_FILES)
 	docker-compose build
-	docker-compose up -d mongodb redis http dynamodb mysql memcached
+	docker-compose up -d
 	mkdir -p $(@D)
 	touch $@
 

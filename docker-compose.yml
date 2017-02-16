@@ -18,6 +18,13 @@ services:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: mydb
 
+  postgresql:
+    image: sameersbn/postgresql:9.6-2
+    environment:
+      DB_USER: me
+      DB_PASS: secret
+      DB_NAME: mydb
+
   memcached:
     image: memcached
 

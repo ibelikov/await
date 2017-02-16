@@ -1,0 +1,31 @@
+#!/usr/bin/env python2
+import argparse
+from urlparse import urlparse
+import pg8000
+
+
+def main(args):
+    parts = urlparse(args.url)
+
+    connection = pg8000.connect(
+        host=parts.hostname,
+        port=parts.port,
+        user=parts.username,
+        password=parts.password,
+        database=parts.query,
+        timeout=args.timeout)
+
+    connection.cursor()
+    print("OK!")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Check postgresql connection.")
+
+    parser.add_argument("url", nargs="?")
+    parser.add_argument("-t", "--timeout", type=int, nargs=1,
+                        default=1,
+                        help="timeout in seconds (default: 1)")
+
+    args = parser.parse_args()
+    main(args)

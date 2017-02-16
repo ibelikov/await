@@ -134,10 +134,24 @@
 	[ $status -eq 2 ]
 }
 
+<<<<<<< HEAD
 @test "successful memcached connection" {
 	run await memcached://memcached:11211
 	[ $status -eq 0 ]
 
+=======
+@test "successful postgresql connection with retry" {
+	run await -r 5 postgresql://me:secret@postgresql:5432?mydb
+	[ $status -eq 0 ]
+}
+
+@test "unsuccessful postgresql connection with retry" {
+	run await -r 1 postgresql://unknown
+	[ $status -eq 1 ]
+}
+
+@test "successful memcached connection with retry" {
+>>>>>>> 90db1c4... PostgreSQL support
 	run await -r 2 memcached://memcached:11211
 	[ $status -eq 0 ]
 
