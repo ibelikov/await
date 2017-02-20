@@ -12,10 +12,9 @@ def main(args):
         port=parts.port,
         user=parts.username,
         password=parts.password,
-        database=parts.query,
+        database="postgres",
         timeout=args.timeout)
 
-    connection.cursor()
     print("OK!")
 
 

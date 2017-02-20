@@ -21,9 +21,7 @@ services:
   postgresql:
     image: sameersbn/postgresql:9.6-2
     environment:
-      DB_USER: me
-      DB_PASS: secret
-      DB_NAME: mydb
+      PG_PASSWORD: secret
 
   memcached:
     image: memcached
