@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:latest
 
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
 	&& apk add --update --no-cache \
@@ -10,7 +10,7 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/reposit
 		boto3 \
 		pymemcache \
 		pymongo \
-		PyMySQL \
+		PyMySQL==0.8.1 \
 		pg8000 \
 		redis \
 		awscli
